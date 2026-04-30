@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scripter_Jaat</title>
+<style>
+
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#254a3c;
+color:white;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(120deg,#2fa47a,#1a5e4a);
+min-height:500px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+position:relative;
+text-align:center;
+padding:40px 24px 100px;
+}
+
+.hero h1{
+font-size:clamp(36px,8vw,72px);
+margin:0;
+letter-spacing:-1px;
+animation:floatTitle 4s ease-in-out infinite;
+}
+
+.hero p{
+font-size:clamp(16px,3vw,22px);
+margin-top:10px;
+color:#ffe8d9;
+}
+
+@keyframes floatTitle{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
+}
+
+.btn{
+position:absolute;
+bottom:40px;
+right:clamp(20px,5vw,60px);
+background:#1c1f26;
+border:1px solid rgba(255,255,255,0.08);
+padding:14px 28px;
+border-radius:12px;
+font-size:clamp(14px,3vw,17px);
+color:white;
+cursor:pointer;
+transition:0.2s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn:hover{
+background:#ff7a3c;
+transform:translateY(-2px);
+}
+
+.scroll-down{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+font-size:20px;
+color:#ffe8d9;
+opacity:0.9;
+white-space:nowrap;
+}
+
+/* ABOUT */
+
+.about{
+padding:60px 24px;
+text-align:center;
+font-size:clamp(16px,2.5vw,20px);
+color:#b8bcc5;
+max-width:900px;
+margin:auto;
+line-height:1.6;
+border-top:1px solid rgba(255,255,255,0.05);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+/* COUPON */
+
+.coupon-section{
+max-width:900px;
+margin:70px auto 30px;
+text-align:center;
+padding:0 24px;
+}
+
+.coupon-title{
+font-size:clamp(24px,5vw,36px);
+font-weight:700;
+color:#f7c96d;
+}
+
+.coupon-divider{
+width:min(360px,80%);
+height:3px;
+background:#f7c96d;
+margin:16px auto 22px;
+border-radius:3px;
+opacity:0.9;
+}
+
+.coupon-desc{
+font-size:clamp(15px,2.5vw,19px);
+color:#cfd4db;
+line-height:1.6;
+}
+
+/* PROJECTS */
+
+.projects{
+padding:70px 24px;
+max-width:1400px;
+margin:auto;
+}
+
+/* SECTION HEADER */
+
+.section-header{
+text-align:center;
+margin-bottom:40px;
+}
+
+.section-headline{
+font-size:clamp(26px,5vw,48px);
+font-weight:700;
+color:#ffffff;
+margin:0 0 14px;
+letter-spacing:-0.5px;
+}
+
+.section-desc{
+font-size:clamp(15px,2.2vw,18px);
+color:#9baaa0;
+line-height:1.65;
+max-width:680px;
+margin:0 auto;
+}
+
+/* GOLDEN DIVIDER */
+
+.golden-divider{
+max-width:1400px;
+margin:0 auto;
+padding:0 24px;
+}
+
+.golden-divider-inner{
+height:2px;
+background:linear-gradient(90deg,transparent,#f7c96d55,#f7c96d,#f7c96d55,transparent);
+border-radius:2px;
+}
+
+/* GRID */
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+/* CARD */
+
+.card{
+background:linear-gradient(180deg,#1c1f26,#181b21);
+border-radius:16px;
+padding:22px;
+border:1px solid rgba(255,255,255,0.06);
+transition:0.25s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border:1px solid rgba(255,255,255,0.12);
+}
+
+/* VIDEO EMBED */
+
+.video-wrap{
+position:relative;
+width:100%;
+padding-top:56.25%;
+border-radius:12px;
+overflow:hidden;
+}
+
+.video-wrap iframe{
+position:absolute;
+top:0;left:0;
+width:100%;height:100%;
+border:none;
+border-radius:12px;
+}
+
+/* CARD TEXT */
+
+.card h3{
+margin:14px 0 6px;
+font-size:clamp(18px,3vw,22px);
+transition:0.2s;
+}
+
+.card:hover h3{color:#2db27f;}
+
+.card p{
+opacity:0.85;
+font-size:clamp(13px,2vw,15px);
+line-height:1.5;
+margin-bottom:12px;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.tag{
+background:#262b35;
+color:#c9ced8;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+.project-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:650px){
+.project-grid{grid-template-columns:1fr;}
+.hero{min-height:360px;padding-bottom:120px;}
+.btn{
+right:50%;
+transform:translateX(50%);
+bottom:30px;
+width:calc(100% - 48px);
+text-align:center;
+}
+.scroll-down{bottom:80px;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Scripter Jaat</h1>
+  <p>Hi, I am Aditya Poonia(Scripter_Jaat)</p>
+  <p class="scroll-down">Please Scroll Down</p>
+  <a class="btn" href="https://discord.com/users/1304461442875002990" target="_blank">
+    📩 Hire Me on Discord
+  </a>
+</div>
+
+<!-- ABOUT -->
+<div class="about">
+  I'm a full stack scripter with about 2 years of experience.
+  Most of my work revolves around gameplay systems like movement, inventories, weapons, quests and other modular systems used in Roblox games.
+</div>
+
+<!-- COUPON -->
+<div class="coupon-section">
+  <div class="coupon-title">🎟 Free Fix Coupon 🎟</div>
+  <div class="coupon-divider"></div>
+  <div class="coupon-desc">
+    If me and you complete a successful commission, you get a coupon from me.
+    The coupon allows you to come to me, and I will fix the bug(s) in the game for FREE,
+    the bug can be in someone else's script, the coupon covers that too, it just has to be your game.
+    The coupon offers a maximum of 5 bugs, and a 1-year validity starting from the day when the coupon was issued to you.
+  </div>
+</div>
+
+<!-- SPOTLIGHTS -->
+<div class="projects">
+  <div class="section-header">
+    <div class="section-headline">Spotlights</div>
+  </div>
+  <div class="project-grid">
+
+    <div class="card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/aQimFzI7E7A?autoplay=1&mute=1&loop=1&playlist=aQimFzI7E7A" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <h3>Portals with Minimap</h3>
+      <p>Teleport players and spawn portals via minimap. Made for a "Control Tower/Command Center" scenario.</p>
+      <div class="tags">
+        <div class="tag">Teleport</div>
+        <div class="tag">Map Travel</div>
+        <div class="tag">UI</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/EKdwFgQ4IvY?autoplay=1&mute=1&loop=1&playlist=EKdwFgQ4IvY" allowfullscreen allow="autoplay"></iframe></div>
+      <h3>Over The Shoulder Guns</h3>
+      <p>OTS Guns, made for story and roleplay games, Military style weapons.</p>
+      <div class="tags">
+        <div class="tag">OTS</div>
+	<div class="tag">Modular</div>
+        <div class="tag">Guns</div>
+        <div class="tag">Realistic</div>
+	<div class="tag">Shell Ejection</div>
+	<div class="tag">Gore</div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/jmvcF2x7EpU?autoplay=1&mute=1&loop=1&playlist=jmvcF2x7EpU" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <h3>Guns &amp; RPG</h3>
+      <p>Modular gun system supporting rifles, pistols and rocket launchers. Includes animations, shell ejection and sound effects.</p>
+      <div class="tags">
+        <div class="tag">FPS</div>
+        <div class="tag">Weapons</div>
+        <div class="tag">Effects</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/M2r7jJg1dmk?autoplay=1&mute=1&loop=1&playlist=M2r7jJg1dmk" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <h3>Drag And Drop Inventory</h3>
+      <p>Drag and drop inventory with item categories and rarities. Players can pick up, equip or drop items.</p>
+      <div class="tags">
+        <div class="tag">Inventory</div>
+        <div class="tag">UI</div>
+        <div class="tag">Drag &amp; Drop</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/4ivF4flTXv4?autoplay=1&mute=1&loop=1&playlist=4ivF4flTXv4" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <h3>Quest System</h3>
+      <p>Quest framework with NPC dialogue and reward handling. Useful for story or RPG style games.</p>
+      <div class="tags">
+        <div class="tag">Quests</div>
+        <div class="tag">NPC</div>
+        <div class="tag">Rewards</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/a_T9GzPq4qY?autoplay=1&mute=1&loop=1&playlist=a_T9GzPq4qY" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <h3>Custom Movement System</h3>
+      <p>Custom character movement with sprinting, dashing and rolling. Made to make player movement feel smoother.</p>
+      <div class="tags">
+        <div class="tag">Movement</div>
+        <div class="tag">Animations</div>
+        <div class="tag">Camera</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/c5Z3zXMulmM?autoplay=1&mute=1&loop=1&playlist=c5Z3zXMulmM" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <h3>Stylish Inventory</h3>
+      <p>Stylish modern-ish Inventory, this one has gamepass to unlock more slots.</p>
+      <div class="tags">
+        <div class="tag">Gamepass</div>
+        <div class="tag">Monetization</div>
+        <div class="tag">Inventory</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/fS03bY7q9nw?autoplay=1&mute=1&loop=1&playlist=fS03bY7q9nw" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <h3>Search Bar Inventory</h3>
+      <p>Search Bar, a very uncommon feature on Roblox, well I've got that covered.</p>
+      <div class="tags">
+        <div class="tag">Search Bar</div>
+        <div class="tag">Monetization</div>
+        <div class="tag">Inventory</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- GOLDEN DIVIDER -->
+<div class="golden-divider">
+  <div class="golden-divider-inner"></div>
+</div>
+
+<!-- SECOND SECTION -->
+<div class="projects">
+  <div class="section-header">
+    <div class="section-headline">Open-Source Mastery</div>
+    <p class="section-desc">
+      These are Open-Source system/modules that I have mastered.<br>
+      I can customize these modules and systems and apply in your game.<br>
+      Disclaimer: I do NOT take credit for making these system, and give full respect/credit to the respective creators.
+    </p>
+  </div>
+  <div class="project-grid">
+
+    <div class="card">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/aebNCxuoJhw?autoplay=1&mute=1&loop=1&playlist=aebNCxuoJhw" allowfullscreen allow="autoplay"></iframe>
+  </div>
+  <h3>Physics Based Car</h3>
+  <p>A simple but satisfying physics-driven car system. Feels weighty, responsive, and actually fun to drive around.</p>
+  <div class="tags">
+    <div class="tag">Physics</div>
+    <div class="tag">Vehicles</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/-nRd-YsYX-g?autoplay=1&mute=1&loop=1&playlist=-nRd-YsYX-g" allowfullscreen allow="autoplay"></iframe>
+  </div>
+  <h3>EzVisuals UI</h3>
+  <p>A clean UI setup that just looks good without trying too hard. Smooth animations and a nice overall vibe.</p>
+  <div class="tags">
+    <div class="tag">UI</div>
+    <div class="tag">Visuals</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/u4egwAyQH_U?autoplay=1&mute=1&loop=1&playlist=u4egwAyQH_U" allowfullscreen allow="autoplay"></iframe>
+  </div>
+  <h3>Planet System</h3>
+  <p>A cool little planetary setup with orbiting bodies. Not super complex, but it gives a nice space feel.</p>
+  <div class="tags">
+    <div class="tag">Space</div>
+    <div class="tag">Simulation</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/oJkO0cbR35A?autoplay=1&mute=1&loop=1&playlist=oJkO0cbR35A" allowfullscreen allow="autoplay"></iframe>
+  </div>
+  <h3>Realistic Bloom</h3>
+  <p>Lighting upgrade that instantly makes everything look better. Subtle glow, but it adds a lot.</p>
+  <div class="tags">
+    <div class="tag">Graphics</div>
+    <div class="tag">Lighting</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/51RGKM_WiKk?autoplay=1&mute=1&loop=1&playlist=51RGKM_WiKk" allowfullscreen allow="autoplay"></iframe>
+  </div>
+  <h3>Roblox FPS System</h3>
+  <p>A solid FPS setup with smooth shooting and decent mechanics. Feels pretty close to actual shooters.</p>
+  <div class="tags">
+    <div class="tag">FPS</div>
+    <div class="tag">Combat</div>
+  </div>
+</div>
+<div class="card">
+  <div class="video-wrap">
+    <iframe src="https://www.youtube.com/embed/gGHXDe7qZfk?autoplay=1&mute=1&loop=1&playlist=gGHXDe7qZfk" allowfullscreen allow="autoplay"></iframe>
+  </div>
+  <h3>Parkour / Obby System</h3>
+  <p>A fast-paced parkour setup with smooth movement and clean jumps. Simple idea, but really fun when it flows well.</p>
+  <div class="tags">
+    <div class="tag">Parkour</div>
+    <div class="tag">Movement</div>
+  </div>
+</div>
+  </div>
+</div>
+
+</body>
+</html>
