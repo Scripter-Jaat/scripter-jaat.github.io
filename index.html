@@ -1,526 +1,441 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scripter_Jaat</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top-Tier Roblox Scripter | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0B0E14',
+                        card: '#161B26',
+                        cyber: '#00F5D4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0E14;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        .font-mono { font-family: 'Fira Code', monospace; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0E14; }
+        ::-webkit-scrollbar-thumb { background: #161B26; border-radius: 4px; border: 1px solid #1F2937; }
+        ::-webkit-scrollbar-thumb:hover { background: #00F5D4; }
 
-*{box-sizing:border-box;}
-
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#254a3c;
-color:white;
-}
-
-/* HERO */
-
-.hero{
-background:linear-gradient(120deg,#2fa47a,#1a5e4a);
-min-height:500px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-position:relative;
-text-align:center;
-padding:40px 24px 100px;
-}
-
-.hero h1{
-font-size:clamp(36px,8vw,72px);
-margin:0;
-letter-spacing:-1px;
-animation:floatTitle 4s ease-in-out infinite;
-}
-
-.hero p{
-font-size:clamp(16px,3vw,22px);
-margin-top:10px;
-color:#ffe8d9;
-}
-
-@keyframes floatTitle{
-0%{transform:translateY(0)}
-50%{transform:translateY(-6px)}
-100%{transform:translateY(0)}
-}
-
-.btn{
-position:absolute;
-bottom:40px;
-right:clamp(20px,5vw,60px);
-background:#1c1f26;
-border:1px solid rgba(255,255,255,0.08);
-padding:14px 28px;
-border-radius:12px;
-font-size:clamp(14px,3vw,17px);
-color:white;
-cursor:pointer;
-transition:0.2s;
-text-decoration:none;
-display:inline-block;
-}
-
-.btn:hover{
-background:#ff7a3c;
-transform:translateY(-2px);
-}
-
-.scroll-down{
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-font-size:20px;
-color:#ffe8d9;
-opacity:0.9;
-white-space:nowrap;
-}
-
-/* ABOUT */
-
-.about{
-padding:60px 24px;
-text-align:center;
-font-size:clamp(16px,2.5vw,20px);
-color:#b8bcc5;
-max-width:900px;
-margin:auto;
-line-height:1.6;
-border-top:1px solid rgba(255,255,255,0.05);
-border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-/* COUPON */
-
-.coupon-section{
-max-width:900px;
-margin:70px auto 30px;
-text-align:center;
-padding:0 24px;
-}
-
-.coupon-title{
-font-size:clamp(24px,5vw,36px);
-font-weight:700;
-color:#f7c96d;
-}
-
-.coupon-divider{
-width:min(360px,80%);
-height:3px;
-background:#f7c96d;
-margin:16px auto 22px;
-border-radius:3px;
-opacity:0.9;
-}
-
-.coupon-desc{
-font-size:clamp(15px,2.5vw,19px);
-color:#cfd4db;
-line-height:1.6;
-}
-
-/* PROJECTS */
-
-.projects{
-padding:70px 24px;
-max-width:1400px;
-margin:auto;
-}
-
-/* SECTION HEADER */
-
-.section-header{
-text-align:center;
-margin-bottom:40px;
-}
-
-.section-headline{
-font-size:clamp(26px,5vw,48px);
-font-weight:700;
-color:#ffffff;
-margin:0 0 14px;
-letter-spacing:-0.5px;
-}
-
-.section-desc{
-font-size:clamp(15px,2.2vw,18px);
-color:#9baaa0;
-line-height:1.65;
-max-width:680px;
-margin:0 auto;
-}
-
-/* GOLDEN DIVIDER */
-
-.golden-divider{
-max-width:1400px;
-margin:0 auto;
-padding:0 24px;
-}
-
-.golden-divider-inner{
-height:2px;
-background:linear-gradient(90deg,transparent,#f7c96d55,#f7c96d,#f7c96d55,transparent);
-border-radius:2px;
-}
-
-/* GRID */
-
-.project-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-}
-
-/* CARD */
-
-.card{
-background:linear-gradient(180deg,#1c1f26,#181b21);
-border-radius:16px;
-padding:22px;
-border:1px solid rgba(255,255,255,0.06);
-transition:0.25s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-border:1px solid rgba(255,255,255,0.12);
-}
-
-/* VIDEO EMBED */
-
-.video-wrap{
-position:relative;
-width:100%;
-padding-top:56.25%;
-border-radius:12px;
-overflow:hidden;
-}
-
-.video-wrap iframe{
-position:absolute;
-top:0;left:0;
-width:100%;height:100%;
-border:none;
-border-radius:12px;
-}
-
-/* CARD TEXT */
-
-.card h3{
-margin:14px 0 6px;
-font-size:clamp(18px,3vw,22px);
-transition:0.2s;
-}
-
-.card:hover h3{color:#2db27f;}
-
-.card p{
-opacity:0.85;
-font-size:clamp(13px,2vw,15px);
-line-height:1.5;
-margin-bottom:12px;
-}
-
-.tags{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-}
-
-.tag{
-background:#262b35;
-color:#c9ced8;
-padding:6px 12px;
-border-radius:20px;
-font-size:13px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1000px){
-.project-grid{grid-template-columns:repeat(2,1fr);}
-}
-
-@media(max-width:650px){
-.project-grid{grid-template-columns:1fr;}
-.hero{min-height:360px;padding-bottom:120px;}
-.btn{
-right:50%;
-transform:translateX(50%);
-bottom:30px;
-width:calc(100% - 48px);
-text-align:center;
-}
-.scroll-down{bottom:80px;}
-}
-
-</style>
+        /* Glow Utilities */
+        .glow-text { text-shadow: 0 0 15px rgba(0, 245, 212, 0.6); }
+        .glow-box:hover { box-shadow: 0 0 25px rgba(0, 245, 212, 0.2); }
+        
+        /* Smooth Transitions - Slowed down for better visibility */
+        .transition-scroll { transition: all 2s cubic-bezier(0.22, 1, 0.36, 1); }
+        
+        /* Range Slider Styling */
+        input[type=range] {
+            accent-color: #00F5D4;
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased selection:bg-cyber selection:text-dark">
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Scripter Jaat</h1>
-  <p>Hi, I am Aditya Poonia(Scripter_Jaat)</p>
-  <p class="scroll-down">Please Scroll Down</p>
-  <a class="btn" href="https://discord.com/users/1304461442875002990" target="_blank">
-    📩 Hire Me on Discord
-  </a>
-</div>
+    <!-- HERO SECTION -->
+    <header class="min-h-screen flex items-center justify-center pt-5 pb-4 px-6 relative">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber opacity-5 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
+            <div class="space-y-6">
+                <div class="inline-block px-3 py-1 rounded-full border border-cyber/30 bg-cyber/10 text-cyber text-sm font-semibold tracking-wide mb-2">
+                    Scripter_Jaat
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white">
+                    Singleplayer. <span class="text-cyber glow-text">Multiplayer.</span><br>Anti-Cheat
+                </h1>
+                <p class="text-lg text-gray-400 max-w-lg leading-relaxed">
+    		Configurable. Optimized. Server Validated.
+                </p>
+                <div class="pt-4 flex gap-4">
+                    <a href="#contact" class="px-8 py-4 bg-cyber text-dark font-bold rounded hover:bg-[#00e0c2] transition-colors shadow-[0_0_15px_rgba(0,245,212,0.3)]">
+                        Hire on Discord / Talent Hub
+                    </a>
+                </div>
+            </div>
 
-<!-- ABOUT -->
-<div class="about">
-  I'm a full stack scripter with about 2 years of experience.
-  Most of my work revolves around gameplay systems like movement, inventories, weapons, quests and other modular systems used in Roblox games.
-</div>
+            <!-- IDE Code Component -->
+            <div class="rounded-xl overflow-hidden border border-gray-800 bg-card shadow-2xl glow-box transition-all">
+                <!-- Top Bar -->
+                <div class="flex items-center px-4 py-3 bg-[#0f131c] border-b border-gray-800 relative">
+                    <div class="flex gap-2 absolute left-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    </div>
+                    <div class="mx-auto text-xs text-gray-500 font-mono">NetworkService.lua</div>
+                </div>
+                <!-- Code Body -->
+                <div class="p-6 overflow-x-auto text-sm text-gray-300 font-mono leading-relaxed">
+<pre><code><span class="text-pink-500">local</span> NetworkService = {}
+NetworkService.__index = NetworkService
 
-<!-- COUPON -->
-<div class="coupon-section">
-  <div class="coupon-title">🎟 Free Fix Coupon 🎟</div>
-  <div class="coupon-divider"></div>
-  <div class="coupon-desc">
-    If me and you complete a successful commission, you get a coupon from me.
-    The coupon allows you to come to me, and I will fix the bug(s) in the game for FREE,
-    the bug can be in someone else's script, the coupon covers that too, it just has to be your game.
-    The coupon offers a maximum of 5 bugs, and a 1-year validity starting from the day when the coupon was issued to you.
-  </div>
-</div>
+<span class="text-pink-500">function</span> <span class="text-blue-400">NetworkService.new</span>()
+    <span class="text-pink-500">local</span> self = <span class="text-yellow-200">setmetatable</span>({}, NetworkService)
+    self._packetBuffer = {}
+    self._securityKey = <span class="text-yellow-200">os.time</span>()
+    <span class="text-pink-500">return</span> self
+<span class="text-pink-500">end</span>
 
-<!-- SPOTLIGHTS -->
-<div class="projects">
-  <div class="section-header">
-    <div class="section-headline">Spotlights</div>
-  </div>
-  <div class="project-grid">
+<span class="text-gray-500">-- Optimized Client-Server Replication</span>
+<span class="text-pink-500">function</span> <span class="text-blue-400">NetworkService:FireClient</span>(player, payload)
+    <span class="text-pink-500">local</span> encrypted = self:<span class="text-blue-400">_encrypt</span>(payload)
+    RemoteEvent:<span class="text-blue-400">FireClient</span>(player, encrypted)
+<span class="text-pink-500">end</span></code></pre>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <div class="card">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/aQimFzI7E7A?autoplay=1&mute=1&loop=1&playlist=aQimFzI7E7A" allowfullscreen allow="autoplay"></iframe>
+    <!-- ALTERNATING VIDEO SHOWCASE -->
+    <section class="py-32 px-6 relative border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto space-y-32">
+            
+            <div class="text-center mb-24">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">Featured Projects</h2>
+                <div class="w-24 h-1 bg-cyber mx-auto rounded shadow-[0_0_10px_rgba(0,245,212,0.5)] mb-6"></div>
+                <p class="text-xl text-gray-400">Spotlights from some of the projects that I've worked on/with.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center animate-on-scroll opacity-0 translate-y-10 md:translate-y-0 md:translate-x-[-100px] transition-scroll">
+                <div class="w-full md:w-1/2 aspect-video bg-card rounded-xl border border-gray-800 overflow-hidden relative group shadow-xl">
+                    <iframe class="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/aQimFzI7E7A?autoplay=1&mute=1&loop=1&playlist=aQimFzI7E7A&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <h3 class="text-3xl font-bold text-cyber">Portals with Minimap</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed">Built this for a command center concept — players spawn and travel through portals straight from the minimap. Server-validated teleportation with full client replication, handles 60+ players without position desyncs.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center animate-on-scroll opacity-0 translate-y-10 md:translate-y-0 md:translate-x-[100px] transition-scroll">
+                <div class="w-full md:w-1/2 aspect-video bg-card rounded-xl border border-gray-800 overflow-hidden relative group shadow-xl">
+                    <iframe class="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/EKdwFgQ4IvY?autoplay=1&mute=1&loop=1&playlist=EKdwFgQ4IvY&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <h3 class="text-3xl font-bold text-cyber">Over The Shoulder Guns</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed">OTS weapon system I built for story and roleplay games — shell ejection, modular guns, gore included. Server-authoritative hit detection with anti-exploit validation, so damage can't be faked client-side.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center animate-on-scroll opacity-0 translate-y-10 md:translate-y-0 md:translate-x-[-100px] transition-scroll">
+                <div class="w-full md:w-1/2 aspect-video bg-card rounded-xl border border-gray-800 overflow-hidden relative group shadow-xl">
+                    <iframe class="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/jmvcF2x7EpU?autoplay=1&mute=1&loop=1&playlist=jmvcF2x7EpU&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <h3 class="text-3xl font-bold text-cyber">Guns & RPG</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed">Modular FPS system with rifles, pistols, and an RPG — animations, shell ejection, and SFX all handled in one clean system. I built it so adding or tweaking weapons stays straightforward without things breaking.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center animate-on-scroll opacity-0 translate-y-10 md:translate-y-0 md:translate-x-[100px] transition-scroll">
+                <div class="w-full md:w-1/2 aspect-video bg-card rounded-xl border border-gray-800 overflow-hidden relative group shadow-xl">
+                    <iframe class="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/M2r7jJg1dmk?autoplay=1&mute=1&loop=1&playlist=M2r7jJg1dmk&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <h3 class="text-3xl font-bold text-cyber">Drag And Drop Inventory</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed">Full drag-and-drop inventory with categories and rarity tiers — server-validated equip and drop actions so nothing gets duped or exploited. DataStore-backed so your players' inventories persist across sessions.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center animate-on-scroll opacity-0 translate-y-10 md:translate-y-0 md:translate-x-[-100px] transition-scroll">
+                <div class="w-full md:w-1/2 aspect-video bg-card rounded-xl border border-gray-800 overflow-hidden relative group shadow-xl">
+                    <iframe class="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/SP8Ztl1s2vY?autoplay=1&mute=1&loop=1&playlist=SP8Ztl1s2vY&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <h3 class="text-3xl font-bold text-cyber">Quest System</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed">Quest framework with NPC dialogue and reward handling — progress tracked server-side and saved via DataStore. Reward distribution is validated on the server, so it can't be triggered or spammed by exploiters.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center animate-on-scroll opacity-0 translate-y-10 md:translate-y-0 md:translate-x-[100px] transition-scroll">
+                <div class="w-full md:w-1/2 aspect-video bg-card rounded-xl border border-gray-800 overflow-hidden relative group shadow-xl">
+                    <iframe class="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/a_T9GzPq4qY?autoplay=1&mute=1&loop=1&playlist=a_T9GzPq4qY&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <h3 class="text-3xl font-bold text-cyber">Custom Movement System</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed">Sprint, dash, and roll with proper animations and a camera that actually keeps up. Built with client-side prediction and server reconciliation — movement stays smooth even on higher ping.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center animate-on-scroll opacity-0 translate-y-10 md:translate-y-0 md:translate-x-[-100px] transition-scroll">
+                <div class="w-full md:w-1/2 aspect-video bg-card rounded-xl border border-gray-800 overflow-hidden relative group shadow-xl">
+                    <iframe class="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/c5Z3zXMulmM?autoplay=1&mute=1&loop=1&playlist=c5Z3zXMulmM&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <h3 class="text-3xl font-bold text-cyber">Stylish Inventory</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed">Modern inventory with server-side Gamepass verification for slot expansion — no client-side checks that can be bypassed. DataStore-backed, and the upgrade path feels natural without annoying your players.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center animate-on-scroll opacity-0 translate-y-10 md:translate-y-0 md:translate-x-[100px] transition-scroll">
+                <div class="w-full md:w-1/2 aspect-video bg-card rounded-xl border border-gray-800 overflow-hidden relative group shadow-xl">
+                    <iframe class="w-full h-full pointer-events-none" src="https://www.youtube.com/embed/fS03bY7q9nw?autoplay=1&mute=1&loop=1&playlist=fS03bY7q9nw&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="absolute inset-0 bg-cyber/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <h3 class="text-3xl font-bold text-cyber">Search Bar Inventory</h3>
+                    <p class="text-lg text-gray-400 leading-relaxed">Real-time client-side search filtering across the full inventory — no server calls on every keystroke, so it stays instant even with large item pools. Genuinely rare to see this done right on Roblox.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-32 px-6 bg-[#0d1017]">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">Open-Source Mastery</h2>
+                <div class="w-24 h-1 bg-cyber mx-auto rounded shadow-[0_0_10px_rgba(0,245,212,0.5)] mb-6"></div>
+                <p class="text-xl text-gray-400">Open Source tools and systems that I have mastered and can implement in your project.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto bg-[#1a140f] border-l-4 border-yellow-500 p-6 rounded-r-lg shadow-md animate-on-scroll opacity-0 translate-y-10 transition-scroll">
+                <div class="flex gap-4">
+                    <svg class="w-6 h-6 text-yellow-500 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed font-medium">
+                        <strong class="text-yellow-500">DISCLAIMER:</strong> All open-source tools showcased here are strictly community resources. While heavily optimized and transformed for network performance, server security and general project/showcase requirements, the Fundamentals are still open-source. I do NOT take credit for creating any of these systems from scratch.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 animate-on-scroll opacity-0 translate-y-10 transition-scroll">
+                
+                <div class="bg-card rounded-xl border border-gray-800 overflow-hidden hover:border-cyber/50 transition-all duration-300 shadow-lg group">
+                    <div class="w-full aspect-video bg-black relative">
+                        <iframe class="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" src="https://www.youtube.com/embed/aebNCxuoJhw?autoplay=1&mute=1&loop=1&playlist=aebNCxuoJhw&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5 border-t border-gray-800 bg-card h-full">
+                        <h4 class="text-lg font-bold text-cyber text-center tracking-wide mb-3">Physics Based Car</h4>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">Constraint-based physics car with proper weight distribution and responsive handling. I've got this mastered and can tune suspension, speed, and drift behavior to fit your game.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-xl border border-gray-800 overflow-hidden hover:border-cyber/50 transition-all duration-300 shadow-lg group">
+                    <div class="w-full aspect-video bg-black relative">
+                        <iframe class="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" src="https://www.youtube.com/embed/-nRd-YsYX-g?autoplay=1&mute=1&loop=1&playlist=-nRd-YsYX-g&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5 border-t border-gray-800 bg-card h-full">
+                        <h4 class="text-lg font-bold text-cyber text-center tracking-wide mb-3">EzVisuals UI</h4>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">EzVisuals implemented with TweenService-driven transitions and a consistent component structure. Easy for me to reskin — swap colors, fonts, and layout without breaking the animation logic.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-xl border border-gray-800 overflow-hidden hover:border-cyber/50 transition-all duration-300 shadow-lg group">
+                    <div class="w-full aspect-video bg-black relative">
+                        <iframe class="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" src="https://www.youtube.com/embed/u4egwAyQH_U?autoplay=1&mute=1&loop=1&playlist=u4egwAyQH_U&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5 border-t border-gray-800 bg-card h-full">
+                        <h4 class="text-lg font-bold text-cyber text-center tracking-wide mb-3">Planet System</h4>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">CFrame-based orbital system with configurable speeds, radii, and body counts. Low overhead — I can tune orbits, sizes, and counts to match whatever your project needs.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-xl border border-gray-800 overflow-hidden hover:border-cyber/50 transition-all duration-300 shadow-lg group">
+                    <div class="w-full aspect-video bg-black relative">
+                        <iframe class="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" src="https://www.youtube.com/embed/oJkO0cbR35A?autoplay=1&mute=1&loop=1&playlist=oJkO0cbR35A&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5 border-t border-gray-800 bg-card h-full">
+                        <h4 class="text-lg font-bold text-cyber text-center tracking-wide mb-3">Realistic Bloom</h4>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">Post-processing bloom setup with tuned Atmosphere and Lighting properties. Hard to explain, but your scene just looks noticeably better — I can calibrate it to your game's art style.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-xl border border-gray-800 overflow-hidden hover:border-cyber/50 transition-all duration-300 shadow-lg group">
+                    <div class="w-full aspect-video bg-black relative">
+                        <iframe class="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" src="https://www.youtube.com/embed/51RGKM_WiKk?autoplay=1&mute=1&loop=1&playlist=51RGKM_WiKk&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5 border-t border-gray-800 bg-card h-full">
+                        <h4 class="text-lg font-bold text-cyber text-center tracking-wide mb-3">Roblox FPS System</h4>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">Raycast-based FPS framework with server-side hit validation and smooth client-side feedback. Shooting feels close to actual shooters — I can extend it into a full combat system if your game needs it.</p>
+                    </div>
+                </div>
+
+                <div class="bg-card rounded-xl border border-gray-800 overflow-hidden hover:border-cyber/50 transition-all duration-300 shadow-lg group">
+                    <div class="w-full aspect-video bg-black relative">
+                        <iframe class="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity pointer-events-none" src="https://www.youtube.com/embed/gGHXDe7qZfk?autoplay=1&mute=1&loop=1&playlist=gGHXDe7qZfk&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5 border-t border-gray-800 bg-card h-full">
+                        <h4 class="text-lg font-bold text-cyber text-center tracking-wide mb-3">Parkour / Obby System</h4>
+                        <p class="text-sm text-gray-400 text-center leading-relaxed">State-machine driven parkour with clean vault, jump, and chain detection. Works standalone or slots into your existing movement — when the states are tuned right, it genuinely flows.</p>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- LIVE CUSTOMIZATION ENGINE -->
+    <section class="pt-12 pb-10 px-6 bg-[#0d1017]">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">Live Customization</h2>
+                <div class="w-24 h-1 bg-cyber mx-auto rounded shadow-[0_0_10px_rgba(0,245,212,0.5)] mb-6"></div>
+                <p class="text-xl text-gray-400">Watch how my systems are structured for seamless client configuration.</p>
+            </div>
+
+            <div class="w-full aspect-video bg-[#0f131c] rounded-xl border border-gray-800 overflow-hidden relative shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-on-scroll opacity-0 translate-y-16 transition-scroll">
+                <iframe class="w-full h-full object-cover opacity-90 pointer-events-none" src="https://www.youtube.com/embed/2yRsXO2qhJU?autoplay=1&mute=1&loop=1&playlist=2yRsXO2qhJU&controls=0&modestbranding=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0B0E14] via-transparent to-transparent pointer-events-none"></div>
+            </div>
+
+        </div>
+    </section>
+    <!-- POST-COMMISSION MAINTENANCE VOUCHER -->
+    <section class="py-32 px-6 bg-[#0d1017]">
+  <div class="max-w-4xl mx-auto">
+    
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">Client Assurance</h2>
+      <div class="w-24 h-1 bg-cyber mx-auto rounded shadow-[0_0_10px_rgba(0,245,212,0.5)] mb-6"></div>
+      <p class="text-xl text-gray-400">Long-term value and developer-grade support built into every major commission.</p>
+    </div>
+
+    <!-- Perk 1: Maintenance Pass (Text Left, Image Right) -->
+    <div class="bg-[#161B26] border border-gray-800 rounded-2xl p-8 md:p-12 mb-8 flex flex-col md:flex-row items-center gap-12 animate-on-scroll opacity-0 translate-y-10 transition-scroll">
+      <div class="flex-1">
+        <div class="inline-flex items-center gap-2 text-cyber font-bold tracking-widest text-xs uppercase mb-4 bg-cyber/10 px-3 py-1 rounded w-fit">Post-Commission Perk #1</div>
+        <h3 class="text-3xl font-bold text-white mb-4">Maintenance Pass</h3>
+        <p class="text-gray-400 leading-relaxed text-lg mb-6">
+          Completing a primary commission grants you an exclusive digital Maintenance Pass. This guarantees up to <strong>5 free bug fixes or maintenance patches</strong> across <span class="text-cyber">ANY GAME YOU OWN</span>.
+        </p>
+        <p class="text-sm text-gray-500 font-mono">* Valid for 1 year from issuance.</p>
       </div>
-      <h3>Portals with Minimap</h3>
-      <p>Teleport players and spawn portals via minimap. Made for a "Control Tower/Command Center" scenario.</p>
-      <div class="tags">
-        <div class="tag">Teleport</div>
-        <div class="tag">Map Travel</div>
-        <div class="tag">UI</div>
+      <div class="w-full md:w-1/3 flex-shrink-0">
+        <img src="MaintenancePass.png" alt="Maintenance Pass" class="rounded-xl shadow-2xl border border-gray-800 w-full" />
       </div>
     </div>
 
-    <div class="card">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/EKdwFgQ4IvY?autoplay=1&mute=1&loop=1&playlist=EKdwFgQ4IvY" allowfullscreen allow="autoplay"></iframe></div>
-      <h3>Over The Shoulder Guns</h3>
-      <p>OTS Guns, made for story and roleplay games, Military style weapons.</p>
-      <div class="tags">
-        <div class="tag">OTS</div>
-	<div class="tag">Modular</div>
-        <div class="tag">Guns</div>
-        <div class="tag">Realistic</div>
-	<div class="tag">Shell Ejection</div>
-	<div class="tag">Gore</div>
+    <!-- Perk 2: Config Handover (Text Right, Code UI Left) -->
+    <div class="bg-[#161B26] border border-gray-800 rounded-2xl p-8 md:p-12 flex flex-col-reverse md:flex-row items-center gap-12 animate-on-scroll opacity-0 translate-y-10 transition-scroll">
+      <div class="w-full md:w-2/5 flex-shrink-0">
+        <!-- Pure Code UI -->
+        <div class="bg-[#0b0e14] border border-gray-800 rounded-xl p-4 font-mono text-xs text-gray-400 shadow-inner group hover:border-cyber/30 transition-colors">
+          <div class="flex items-center gap-1.5 mb-3 border-b border-gray-800 pb-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+          </div>
+          <pre><code><span class="text-purple-400">local</span> Config = {}
+Config.BaseDamage = <span class="text-yellow-400">45</span>
+Config.FireRate = <span class="text-yellow-400">0.12</span>
+Config.MaxRecoil = <span class="text-yellow-400">3.5</span>
+<span class="text-purple-400">return</span> Config</code></pre>
+        </div>
       </div>
-    </div>
-
-
-    <div class="card">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/jmvcF2x7EpU?autoplay=1&mute=1&loop=1&playlist=jmvcF2x7EpU" allowfullscreen allow="autoplay"></iframe>
-      </div>
-      <h3>Guns &amp; RPG</h3>
-      <p>Modular gun system supporting rifles, pistols and rocket launchers. Includes animations, shell ejection and sound effects.</p>
-      <div class="tags">
-        <div class="tag">FPS</div>
-        <div class="tag">Weapons</div>
-        <div class="tag">Effects</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/M2r7jJg1dmk?autoplay=1&mute=1&loop=1&playlist=M2r7jJg1dmk" allowfullscreen allow="autoplay"></iframe>
-      </div>
-      <h3>Drag And Drop Inventory</h3>
-      <p>Drag and drop inventory with item categories and rarities. Players can pick up, equip or drop items.</p>
-      <div class="tags">
-        <div class="tag">Inventory</div>
-        <div class="tag">UI</div>
-        <div class="tag">Drag &amp; Drop</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/SP8Ztl1s2vY?autoplay=1&mute=1&loop=1&playlist=4ivF4flTXv4" allowfullscreen allow="autoplay"></iframe>
-      </div>
-      <h3>Quest System</h3>
-      <p>Quest framework with NPC dialogue and reward handling. Useful for story or RPG style games.</p>
-      <div class="tags">
-        <div class="tag">Quests</div>
-        <div class="tag">NPC</div>
-        <div class="tag">Rewards</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/a_T9GzPq4qY?autoplay=1&mute=1&loop=1&playlist=a_T9GzPq4qY" allowfullscreen allow="autoplay"></iframe>
-      </div>
-      <h3>Custom Movement System</h3>
-      <p>Custom character movement with sprinting, dashing and rolling. Made to make player movement feel smoother.</p>
-      <div class="tags">
-        <div class="tag">Movement</div>
-        <div class="tag">Animations</div>
-        <div class="tag">Camera</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/c5Z3zXMulmM?autoplay=1&mute=1&loop=1&playlist=c5Z3zXMulmM" allowfullscreen allow="autoplay"></iframe>
-      </div>
-      <h3>Stylish Inventory</h3>
-      <p>Stylish modern-ish Inventory, this one has gamepass to unlock more slots.</p>
-      <div class="tags">
-        <div class="tag">Gamepass</div>
-        <div class="tag">Monetization</div>
-        <div class="tag">Inventory</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/fS03bY7q9nw?autoplay=1&mute=1&loop=1&playlist=fS03bY7q9nw" allowfullscreen allow="autoplay"></iframe>
-      </div>
-      <h3>Search Bar Inventory</h3>
-      <p>Search Bar, a very uncommon feature on Roblox, well I've got that covered.</p>
-      <div class="tags">
-        <div class="tag">Search Bar</div>
-        <div class="tag">Monetization</div>
-        <div class="tag">Inventory</div>
+      <div class="flex-1">
+        <div class="inline-flex items-center gap-2 text-cyber font-bold tracking-widest text-xs uppercase mb-4 bg-cyber/10 px-3 py-1 rounded w-fit">Post-Commission Perk #2</div>
+        <h3 class="text-3xl font-bold text-white mb-4">Config Handover & Docs</h3>
+        <p class="text-gray-400 leading-relaxed text-lg mb-6">
+          Every system is delivered with a cleanly commented <span class="text-cyber">Configuration Module</span>. Tweak settings yourself without ever needing to touch or break the core logic.
+        </p>
       </div>
     </div>
 
   </div>
-</div>
+</section>
 
-<!-- GOLDEN DIVIDER -->
-<div class="golden-divider">
-  <div class="golden-divider-inner"></div>
-</div>
+    <!-- FOOTER -->
+    <footer class="py-10 text-center text-gray-600 text-sm border-t border-gray-900 bg-[#0B0E14]">
+        <p>&copy; 2026 Engineered Solutions. Roblox is a registered trademark of Roblox Corporation.</p>
+    </footer>
 
-<!-- SECOND SECTION -->
-<div class="projects">
-  <div class="section-header">
-    <div class="section-headline">Open-Source Mastery</div>
-    <p class="section-desc">
-      These are Open-Source system/modules that I have mastered.<br>
-      I can customize these modules and systems and apply in your game.<br>
-      Disclaimer: I do NOT take credit for making these system, and give full respect/credit to the respective creators.
-    </p>
-  </div>
-  <div class="project-grid">
+    <!-- INTERACTIVE LOGIC -->
+    <script>
+        // --- 1. Intersection Observer for Scroll Animations ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4 // Triggers when 40% of the element is visible (delayed trigger)
+            };
 
-    <div class="card">
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/aebNCxuoJhw?autoplay=1&mute=1&loop=1&playlist=aebNCxuoJhw" allowfullscreen allow="autoplay"></iframe>
-  </div>
-  <h3>Physics Based Car</h3>
-  <p>A simple but satisfying physics-driven car system. Feels weighty, responsive, and actually fun to drive around.</p>
-  <div class="tags">
-    <div class="tag">Physics</div>
-    <div class="tag">Vehicles</div>
-  </div>
-</div>
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove hidden/translated classes, add visible classes
+                        entry.target.classList.remove('opacity-0', 'translate-y-10', 'translate-y-16', 'md:translate-x-[-100px]', 'md:translate-x-[100px]');
+                        entry.target.classList.add('opacity-100', 'translate-y-0', 'md:translate-x-0');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
 
-<div class="card">
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/-nRd-YsYX-g?autoplay=1&mute=1&loop=1&playlist=-nRd-YsYX-g" allowfullscreen allow="autoplay"></iframe>
-  </div>
-  <h3>EzVisuals UI</h3>
-  <p>A clean UI setup that just looks good without trying too hard. Smooth animations and a nice overall vibe.</p>
-  <div class="tags">
-    <div class="tag">UI</div>
-    <div class="tag">Visuals</div>
-  </div>
-</div>
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => observer.observe(el));
+        });
 
-<div class="card">
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/u4egwAyQH_U?autoplay=1&mute=1&loop=1&playlist=u4egwAyQH_U" allowfullscreen allow="autoplay"></iframe>
-  </div>
-  <h3>Planet System</h3>
-  <p>A cool little planetary setup with orbiting bodies. Not super complex, but it gives a nice space feel.</p>
-  <div class="tags">
-    <div class="tag">Space</div>
-    <div class="tag">Simulation</div>
-  </div>
-</div>
+        // --- 2. Live Customization Engine Logic ---
+        const fireRateInput = document.getElementById('fireRate');
+        const rpmValue = document.getElementById('rpmValue');
+        const codeRpm = document.getElementById('codeRpm');
 
-<div class="card">
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/oJkO0cbR35A?autoplay=1&mute=1&loop=1&playlist=oJkO0cbR35A" allowfullscreen allow="autoplay"></iframe>
-  </div>
-  <h3>Realistic Bloom</h3>
-  <p>Lighting upgrade that instantly makes everything look better. Subtle glow, but it adds a lot.</p>
-  <div class="tags">
-    <div class="tag">Graphics</div>
-    <div class="tag">Lighting</div>
-  </div>
-</div>
+        const recoilInput = document.getElementById('recoil');
+        const recoilValue = document.getElementById('recoilValue');
+        const codeRecoil = document.getElementById('codeRecoil');
 
-<div class="card">
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/51RGKM_WiKk?autoplay=1&mute=1&loop=1&playlist=51RGKM_WiKk" allowfullscreen allow="autoplay"></iframe>
-  </div>
-  <h3>Roblox FPS System</h3>
-  <p>A solid FPS setup with smooth shooting and decent mechanics. Feels pretty close to actual shooters.</p>
-  <div class="tags">
-    <div class="tag">FPS</div>
-    <div class="tag">Combat</div>
-  </div>
-</div>
-<div class="card">
-  <div class="video-wrap">
-    <iframe src="https://www.youtube.com/embed/gGHXDe7qZfk?autoplay=1&mute=1&loop=1&playlist=gGHXDe7qZfk" allowfullscreen allow="autoplay"></iframe>
-  </div>
-  <h3>Parkour / Obby System</h3>
-  <p>A fast-paced parkour setup with smooth movement and clean jumps. Simple idea, but really fun when it flows well.</p>
-  <div class="tags">
-    <div class="tag">Parkour</div>
-    <div class="tag">Movement</div>
-  </div>
-</div>
-  </div>
-</div>
+        const securityInput = document.getElementById('securityLevel');
+        const codeSec = document.getElementById('codeSec');
 
-<div class="golden-divider">
-  <div class="golden-divider-inner"></div>
-</div>
+        // Flash effect to draw attention to code changes
+        function flashCodeElement(element) {
+            element.classList.add('text-white', 'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]');
+            setTimeout(() => {
+                element.classList.remove('text-white', 'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]');
+            }, 300);
+        }
 
+        fireRateInput.addEventListener('input', (e) => {
+            const val = e.target.value;
+            rpmValue.textContent = val;
+            codeRpm.textContent = val;
+            flashCodeElement(codeRpm);
+        });
 
-<!-- FEATURED VIDEO SECTION -->
-<div style="max-width:900px;margin:70px auto;padding:0 24px;text-align:center;">
-  <div style="font-size:clamp(26px,5vw,40px);font-weight:700;color:#ffffff;margin-bottom:10px;">
-    Live Customization!
-  </div>
-  <p style="font-size:clamp(15px,2.2vw,18px);color:#9baaa0;margin:0 0 32px;">
-   See how easy my systems are to CUSTOMIZE.
-  </p>
-  <div style="position:relative;width:100%;padding-top:56.25%;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);">
-    <iframe
-      style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-      src="https://www.youtube.com/embed/2yRsXO2qhJU?autoplay=1&mute=1&loop=1&playlist=2yRsXO2qhJU&volume=20"
-      allowfullscreen
-      allow="autoplay">
-    </iframe>
-  </div>
-</div>
-	
+        recoilInput.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value).toFixed(1);
+            recoilValue.textContent = val + 'x';
+            codeRecoil.textContent = val;
+            flashCodeElement(codeRecoil);
+        });
+
+        securityInput.addEventListener('change', (e) => {
+            codeSec.textContent = e.target.value;
+            flashCodeElement(codeSec);
+        });
+    </script>
 </body>
 </html>
